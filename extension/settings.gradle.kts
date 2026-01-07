@@ -6,4 +6,4 @@ pluginManagement {
     }
 }
 
-rootProject.name = "SchematicExtension"
+rootProject.name = "StructureExtension"

@@ -5,6 +5,9 @@
       <module name="DungeonExtension" target="21" />
       <module name="DungeonExtension.main" target="21" />
       <module name="DungeonExtension.test" target="21" />
+      <module name="fr.legendsofxania.SchematicExtension" target="21" />
+      <module name="fr.legendsofxania.SchematicExtension.main" target="21" />
+      <module name="fr.legendsofxania.SchematicExtension.test" target="21" />
     </bytecodeTargetLevel>
   </component>
 </project>
