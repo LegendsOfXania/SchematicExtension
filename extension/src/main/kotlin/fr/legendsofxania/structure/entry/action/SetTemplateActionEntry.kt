@@ -5,6 +5,7 @@ import com.typewritermc.core.entries.Ref
 import com.typewritermc.core.entries.emptyRef
 import com.typewritermc.core.extension.annotations.Entry
 import com.typewritermc.core.extension.annotations.Help
+import com.typewritermc.core.extension.annotations.Tags
 import com.typewritermc.core.utils.point.Position
 import com.typewritermc.engine.paper.entry.Criteria
 import com.typewritermc.engine.paper.entry.Modifier
@@ -21,6 +22,7 @@ import org.bukkit.block.structure.StructureRotation
     Colors.RED,
     "fluent:apps-48-filled"
 )
+@Tags("set_template")
 class SetTemplateActionEntry(
     override val id: String = "",
     override val name: String = "",
@@ -32,7 +34,7 @@ class SetTemplateActionEntry(
     @Help("The location where the StructureTemplate will be placed.")
     val location: Var<Position> = ConstVar(Position.ORIGIN),
     @Help("The rotation to apply to the StructureTemplate when placed.")
-    val rotation: StructureRotation = StructureRotation.NONE
+    val rotation: Var<StructureRotation> = ConstVar(StructureRotation.NONE)
 ) : ActionEntry {
     override fun ActionTrigger.execute() {
         // TODO: Implement the logic to set the structure template at the specified location with the given rotation.
