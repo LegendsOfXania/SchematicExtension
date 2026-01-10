@@ -3,6 +3,8 @@ plugins {
     kotlin("jvm") version "2.2.10"
     /* Typewriter */
     id("com.typewritermc.module-plugin") version "2.1.0"
+    /* */
+    `maven-publish`
 }
 
 group = "fr.legendsofxania"
@@ -31,4 +33,14 @@ typewriter {
 
 kotlin {
     jvmToolchain(21)
+}
+
+publishing {
+    publications {
+        create<MavenPublication>("maven") {
+            groupId = project.group as String
+            artifactId = typewriter.extension?.name
+            version = project.version as String
+        }
+    }
 }
