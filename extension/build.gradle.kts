@@ -3,7 +3,9 @@ plugins {
     kotlin("jvm") version "2.2.10"
     /* Typewriter */
     id("com.typewritermc.module-plugin") version "2.1.0"
-    /* */
+    /* Paperweight */
+    id("io.papermc.paperweight.userdev") version "2.0.0-beta.19"
+    /* Maven Publish */
     `maven-publish`
 }
 
@@ -11,7 +13,10 @@ group = "fr.legendsofxania"
 version = "0.0.1"
 
 repositories {}
-dependencies {}
+dependencies {
+    /* Paperweight */
+    paperweight.paperDevBundle("1.21.11-R0.1-SNAPSHOT")
+}
 
 typewriter {
     namespace = "legendsofxania"
@@ -46,3 +51,5 @@ publishing {
         }
     }
 }
+
+paperweight.reobfArtifactConfiguration = io.papermc.paperweight.userdev.ReobfArtifactConfiguration.MOJANG_PRODUCTION

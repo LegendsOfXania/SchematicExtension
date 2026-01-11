@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/SchematicExtension.iml" filepath="$PROJECT_DIR$/.idea/SchematicExtension.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/modules/StructureExtension.main.iml" filepath="$PROJECT_DIR$/.idea/modules/StructureExtension.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/StructureExtension.test.iml" filepath="$PROJECT_DIR$/.idea/modules/StructureExtension.test.iml" />
     </modules>
   </component>
 </project>
