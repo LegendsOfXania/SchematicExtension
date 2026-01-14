@@ -3,7 +3,11 @@ package fr.legendsofxania.structure.manager
 import com.typewritermc.engine.paper.entry.entries.binaryData
 import com.typewritermc.engine.paper.entry.entries.hasData
 import com.typewritermc.engine.paper.utils.server
+import fr.legendsofxania.structure.data.StructureData
+import fr.legendsofxania.structure.data.StructureDataParser.parseStructureData
 import fr.legendsofxania.structure.entry.static.template.StructureTemplateEntry
+import net.minecraft.nbt.NbtAccounter
+import net.minecraft.nbt.NbtIo
 import org.bukkit.Location
 import org.bukkit.structure.Structure
 import java.io.ByteArrayOutputStream
@@ -29,12 +33,23 @@ object TemplateManager {
         entry.binaryData(bytes)
     }
 
-    suspend fun loadTemplate(entry: StructureTemplateEntry): Structure? {
+    suspend fun loadTemplateAsStructure(entry: StructureTemplateEntry): Structure? {
         if (!entry.hasData()) return null
 
         return entry.binaryData()
             ?.inputStream()
             ?.use { server.structureManager.loadStructure(it) }
+    }
+
+    suspend fun loadTemplateAsStructureData(entry: StructureTemplateEntry): StructureData? {
+        if (!entry.hasData()) return null
+
+        val compound = entry.binaryData()
+            ?.inputStream()
+            ?.use { NbtIo.readCompressed(it, NbtAccounter.unlimitedHeap()) }
+            ?: return null
+
+        return parseStructureData(compound)
     }
 
     private fun calculateCorners(corner1: Location, corner2: Location, world: org.bukkit.World) =

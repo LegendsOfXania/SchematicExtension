@@ -14,18 +14,7 @@ import org.bukkit.util.Vector
 import java.util.UUID
 
 object StructureDataParser {
-    suspend fun loadTemplate(entry: StructureTemplateEntry): StructureData? {
-        if (!entry.hasData()) return null
-
-        val compound = entry.binaryData()
-            ?.inputStream()
-            ?.use { NbtIo.readCompressed(it, NbtAccounter.unlimitedHeap()) }
-            ?: return null
-
-        return parseStructureData(compound)
-    }
-
-    private fun parseStructureData(compound: CompoundTag): StructureData? {
+    fun parseStructureData(compound: CompoundTag): StructureData? {
         val size = parseSize(compound) ?: return null
         val blockPalette = parsePalette(compound) ?: return null
         val blocks = parseBlocks(compound, blockPalette)
