@@ -53,11 +53,13 @@ class StructureSelectionTool(
                 onSelectionChanged(location, location)
                 player.msg("First corner selected at <blue>${location.blockX}</blue>, <blue>${location.blockY}</blue>, <blue>${location.blockZ}</blue>.")
             }
+
             ItemInteractionType.RIGHT_CLICK -> {
                 corner2 = location
                 onSelectionChanged(location, location)
                 player.msg("Second corner selected at <blue>${location.blockX}</blue>, <blue>${location.blockY}</blue>, <blue>${location.blockZ}</blue>.")
             }
+
             ItemInteractionType.SHIFT_LEFT_CLICK -> {
                 val c1 = corner1 ?: run {
                     player.msg("<red>You must select both corners before saving the room.</red>")
@@ -79,6 +81,7 @@ class StructureSelectionTool(
                 }
 
             }
+
             else -> return
         }
     }

@@ -4,7 +4,7 @@ import net.minecraft.nbt.CompoundTag
 import org.bukkit.block.data.BlockData
 import org.bukkit.entity.EntityType
 import org.bukkit.util.Vector
-import java.util.UUID
+import java.util.*
 
 data class StructureData(
     val id: UUID,

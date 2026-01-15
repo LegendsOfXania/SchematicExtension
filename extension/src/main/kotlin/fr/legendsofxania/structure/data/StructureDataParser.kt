@@ -1,17 +1,12 @@
 package fr.legendsofxania.structure.data
 
-import com.typewritermc.engine.paper.entry.entries.binaryData
-import com.typewritermc.engine.paper.entry.entries.hasData
 import com.typewritermc.engine.paper.utils.server
-import fr.legendsofxania.structure.entry.static.template.StructureTemplateEntry
 import net.minecraft.nbt.CompoundTag
 import net.minecraft.nbt.ListTag
-import net.minecraft.nbt.NbtAccounter
-import net.minecraft.nbt.NbtIo
 import org.bukkit.block.data.BlockData
 import org.bukkit.entity.EntityType
 import org.bukkit.util.Vector
-import java.util.UUID
+import java.util.*
 
 object StructureDataParser {
     fun parseStructureData(compound: CompoundTag): StructureData? {

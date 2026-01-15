@@ -3,13 +3,7 @@ package fr.legendsofxania.structure.entry.event
 import com.typewritermc.core.books.pages.Colors
 import com.typewritermc.core.entries.Query
 import com.typewritermc.core.entries.Ref
-import com.typewritermc.core.extension.annotations.ContextKeys
-import com.typewritermc.core.extension.annotations.Entry
-import com.typewritermc.core.extension.annotations.EntryListener
-import com.typewritermc.core.extension.annotations.Help
-import com.typewritermc.core.extension.annotations.KeyType
-import com.typewritermc.core.extension.annotations.MaterialProperties
-import com.typewritermc.core.extension.annotations.MaterialProperty
+import com.typewritermc.core.extension.annotations.*
 import com.typewritermc.core.interaction.EntryContextKey
 import com.typewritermc.core.utils.point.Position
 import com.typewritermc.engine.paper.entry.TriggerableEntry
@@ -27,7 +21,7 @@ import fr.legendsofxania.structure.enum.ShiftType
 import fr.legendsofxania.structure.enum.hasItemInHand
 import fr.legendsofxania.structure.event.AsyncInteractFakeBlockEvent
 import org.bukkit.Material
-import java.util.Optional
+import java.util.*
 import kotlin.reflect.KClass
 
 @Entry(

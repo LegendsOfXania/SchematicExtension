@@ -1,11 +1,11 @@
 package fr.legendsofxania.structure.util
 
+import com.github.retrooper.packetevents.PacketEvents
 import com.github.retrooper.packetevents.protocol.particle.Particle
 import com.github.retrooper.packetevents.protocol.particle.type.ParticleTypes
+import com.github.retrooper.packetevents.util.Vector3d
 import com.github.retrooper.packetevents.util.Vector3f
 import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerParticle
-import com.github.retrooper.packetevents.PacketEvents
-import com.github.retrooper.packetevents.util.Vector3d
 import com.typewritermc.engine.paper.utils.toVector
 import org.bukkit.entity.Player
 import org.bukkit.util.BoundingBox
