@@ -66,7 +66,7 @@ class AdvancedSetStructureTemplateDisplay(
             val configuration = entry.configuration(player)
             if (configuration == instance.configuration) continue
 
-            instance.removeViewer(player)
+            instance.dispose()
 
             val newInstance = StructureInstance(configuration)
             structures[uuid] = newInstance
@@ -81,7 +81,7 @@ class AdvancedSetStructureTemplateDisplay(
     }
 
     override fun onPlayerRemove(player: Player) {
-        structures.remove(player.uniqueId)?.removeViewer(player)
+        structures.remove(player.uniqueId)?.dispose()
     }
 
     override fun dispose() {

@@ -1,6 +1,6 @@
 plugins {
     kotlin("jvm") version "2.2.10"
-    id("com.typewritermc.module-plugin") version "2.1.0"
+    id("com.typewritermc.module-plugin") version "2.2.0"
 }
 
 group = "fr.legendsofxania"
@@ -19,7 +19,7 @@ typewriter {
             beautiful places directly in Typewriter.
             Created by the Legends of Xania.
         """.trimIndent()
-        engineVersion = "0.9.0-beta-175"
+        engineVersion = "0.9.0-beta-177"
         channel = com.typewritermc.moduleplugin.ReleaseChannel.BETA
         paper()
     }

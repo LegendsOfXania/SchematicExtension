@@ -2,19 +2,15 @@ package fr.legendsofxania.structure.interaction.instance
 
 import com.github.retrooper.packetevents.wrapper.play.client.WrapperPlayClientPlayerDigging
 import com.github.retrooper.packetevents.wrapper.play.server.WrapperPlayServerBlockChange
-import com.typewritermc.core.entries.Ref
 import com.typewritermc.core.utils.UntickedAsync
 import com.typewritermc.core.utils.launch
-import com.typewritermc.core.utils.point.Position
 import com.typewritermc.engine.paper.plugin
 import fr.legendsofxania.structure.entry.StructureConfiguration
-import fr.legendsofxania.structure.entry.static.template.StructureTemplateEntry
 import fr.legendsofxania.structure.manager.StructureManager
 import fr.legendsofxania.structure.util.structure.packBlockPos
 import io.github.retrooper.packetevents.util.SpigotConversionUtil
 import kotlinx.coroutines.Dispatchers
 import org.bukkit.Location
-import org.bukkit.block.structure.StructureRotation
 import org.bukkit.entity.Player
 import java.util.*
 import java.util.concurrent.ConcurrentHashMap
@@ -52,8 +48,14 @@ class StructureInstance(
     }
 
     fun dispose() {
-        viewers.forEach { uuid -> StructureManager.untrack(uuid, this) }
-        loader.cached?.entities?.forEach { it.remove() }
+        val structure = loader.cached
+        viewers.forEach { uuid ->
+            if (structure != null) {
+                plugin.server.getPlayer(uuid)?.let { StructureRenderer.hide(it, structure) }
+            }
+            StructureManager.untrack(uuid, this)
+        }
+        structure?.entities?.forEach { it.remove() }
         loader.clear()
         tracker.clear()
         viewers.clear()
